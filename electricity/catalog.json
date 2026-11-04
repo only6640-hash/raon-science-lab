@@ -1,0 +1,500 @@
+[
+  {
+    "name": "직렬, 병렬 회로에 걸리는 전압 / 직렬, 병렬 회로에 흐르는 전류",
+    "url": "https://javalab.org/ko/electric_potential/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "자석(or 지구) 주위의 자기장",
+    "url": "https://javalab.org/ko/magnet/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전자기력, 로렌츠 힘",
+    "url": "https://javalab.org/ko/lorentzs_force/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "자석과 전자석",
+    "url": "https://javalab.org/ko/magnet_and_electromagnet/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "패러데이의 전자기 유도 법칙 2",
+    "url": "https://javalab.org/ko/faradays_law_2/",
+    "cat": "전자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "코일 주위의 자기장",
+    "url": "https://javalab.org/ko/magnetic_field_around_a_coil/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "패러데이의 전자기 유도 법칙",
+    "url": "https://javalab.org/ko/faradays_law/",
+    "cat": "전자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "커패시터의 충전・방전 특성",
+    "url": "https://javalab.org/ko/capacitor_characteristic/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "논리 회로(Logic Gate)",
+    "url": "https://javalab.org/ko/logic/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전기 회로 시뮬레이터 (전기 회로 가상 실험)",
+    "url": "https://javalab.org/ko/electric_circuits/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "마이크와 스피커",
+    "url": "https://javalab.org/ko/speaker/",
+    "cat": "전자기파",
+    "status": "원본 참고"
+  },
+  {
+    "name": "축전기 속의 유전체",
+    "url": "https://javalab.org/ko/dielectric_in_capacitor/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "정전식 터치스크린",
+    "url": "https://javalab.org/ko/touch_screen/",
+    "cat": "반도체",
+    "status": "원본 참고"
+  },
+  {
+    "name": "직렬 회로와 병렬 회로 3",
+    "url": "https://javalab.org/ko/serial_parallel_circuit_3/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "다이오드",
+    "url": "https://javalab.org/ko/diode/",
+    "cat": "반도체",
+    "status": "원본 참고"
+  },
+  {
+    "name": "AM, FM 라디오의 변조",
+    "url": "https://javalab.org/ko/am_fm/",
+    "cat": "전자기파",
+    "status": "원본 참고"
+  },
+  {
+    "name": "인덕터 응용 회로",
+    "url": "https://javalab.org/ko/inductor/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "직렬 회로와 병렬 회로",
+    "url": "https://javalab.org/ko/serial_parallel_circuit/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "정전기 유도",
+    "url": "https://javalab.org/ko/electrostatic_induction/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "원형 도선 주위의 자기장",
+    "url": "https://javalab.org/ko/magnetic_field_around_a_circular_wire/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "옴의 법칙",
+    "url": "https://javalab.org/ko/ohms_law/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "RLC 직렬 회로",
+    "url": "https://javalab.org/ko/rlc_serial_circuit/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "축전기",
+    "url": "https://javalab.org/ko/capacitor/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "직류와 교류",
+    "url": "https://javalab.org/ko/dc_and_ac/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "만약 물 분자가 직선형 구조라면?",
+    "url": "https://javalab.org/ko/polarity_of_water/",
+    "cat": "기타",
+    "status": "원본 참고"
+  },
+  {
+    "name": "얇은 도체 표면의 전하 분포",
+    "url": "https://javalab.org/ko/charge_distribution_on_a_thin_conductive_plate/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "막대자석 주위의 자기장",
+    "url": "https://javalab.org/ko/magnetic_field_around_a_bar_magnet/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "빈 깡통으로 하는 정전기 실험 시뮬레이션",
+    "url": "https://javalab.org/ko/static_electricity_can/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "코일 주위의 자기장 (WEBGL 버전)",
+    "url": "https://javalab.org/ko/oersteds_3d/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "태양풍과 오로라",
+    "url": "https://javalab.org/ko/solar_wind/",
+    "cat": "전자기파",
+    "status": "원본 참고"
+  },
+  {
+    "name": "스텝-다운, 스텝-업 레귤레이터 회로의 기본 원리 (DC-DC 컨버터, 직류 변압기)",
+    "url": "https://javalab.org/ko/step_response/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "마이크로비트 축전기(커패시터)의 충·방전 곡선 관찰 / 충전 시간 측정",
+    "url": "https://javalab.org/ko/microbit_capacitor/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "강자성체의 자화",
+    "url": "https://javalab.org/ko/magnetization/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "자기력",
+    "url": "https://javalab.org/ko/magnetic_force/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "같은 회로",
+    "url": "https://javalab.org/ko/same_circuit/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "외르스테드의 실험",
+    "url": "https://javalab.org/ko/oersteds_experiment/",
+    "cat": "전자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "건물의 배선",
+    "url": "https://javalab.org/ko/home_wiring/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "백열전구(저항의 열작용)",
+    "url": "https://javalab.org/ko/incandescence/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "커패시터 응용 회로",
+    "url": "https://javalab.org/ko/capacitor_application/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "축전기 2",
+    "url": "https://javalab.org/ko/capacitor_2/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전류, 전도체, 부도체",
+    "url": "https://javalab.org/ko/electric_current/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "마찰전기",
+    "url": "https://javalab.org/ko/triboelectricity/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전기 회로 시뮬레이터(AC)",
+    "url": "https://javalab.org/ko/electric_circuits_ac/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "높은 전압으로 송전하는 이유",
+    "url": "https://javalab.org/ko/power_transmission/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "감압식(저항막) 터치스크린",
+    "url": "https://javalab.org/ko/resistive_touch_screen/",
+    "cat": "반도체",
+    "status": "원본 참고"
+  },
+  {
+    "name": "트랜지스터 응용 회로",
+    "url": "https://javalab.org/ko/transistor_2/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "LED의 원리",
+    "url": "https://javalab.org/ko/led/",
+    "cat": "반도체",
+    "status": "원본 참고"
+  },
+  {
+    "name": "직류 전동기",
+    "url": "https://javalab.org/ko/dc_motor/",
+    "cat": "전자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "호모폴라 전동기",
+    "url": "https://javalab.org/ko/homopolar_motor/",
+    "cat": "전자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "변압기",
+    "url": "https://javalab.org/ko/electric_transformer/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "직렬 회로와 병렬 회로 2",
+    "url": "https://javalab.org/ko/serial_parallel_circuit_2/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "LC 필터",
+    "url": "https://javalab.org/ko/lc_filter/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "병렬 회로의 이해",
+    "url": "https://javalab.org/ko/parallel_circuit/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "검전기",
+    "url": "https://javalab.org/ko/electroscope/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전위차 3",
+    "url": "https://javalab.org/ko/electric_potential_3/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전위차 2",
+    "url": "https://javalab.org/ko/electric_potential_2/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "휘트스톤 브리지",
+    "url": "https://javalab.org/ko/wheatstone_bridge/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "7-세그먼트 디스플레이",
+    "url": "https://javalab.org/ko/fnd/",
+    "cat": "반도체",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전파 통신",
+    "url": "https://javalab.org/ko/radio_wave_communication/",
+    "cat": "전자기파",
+    "status": "원본 참고"
+  },
+  {
+    "name": "계단 스위치",
+    "url": "https://javalab.org/ko/stairbulb/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "철과 알루미늄의 분리",
+    "url": "https://javalab.org/ko/separation_of_iron_and_aluminum/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "인덕터와 커패시터",
+    "url": "https://javalab.org/ko/inductor_and_capacitor/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전자기파의 종류",
+    "url": "https://javalab.org/ko/electromagnetic_waves/",
+    "cat": "전자기파",
+    "status": "원본 참고"
+  },
+  {
+    "name": "음극선관",
+    "url": "https://javalab.org/ko/crt/",
+    "cat": "전자기파",
+    "status": "원본 참고"
+  },
+  {
+    "name": "교류 발전기",
+    "url": "https://javalab.org/ko/ac_generator/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "반가산기(Half Adder)",
+    "url": "https://javalab.org/ko/half_adder/",
+    "cat": "반도체",
+    "status": "원본 참고"
+  },
+  {
+    "name": "직류 전동기 2",
+    "url": "https://javalab.org/ko/dc_motor_2/",
+    "cat": "전자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전자기력(전기 그네)",
+    "url": "https://javalab.org/ko/lorentzs_force_3d/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전기력선",
+    "url": "https://javalab.org/ko/electric_field_line/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전류계의 구조",
+    "url": "https://javalab.org/ko/ammeter/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "정류 회로",
+    "url": "https://javalab.org/ko/rectifier_circuit/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전하량 보존 법칙",
+    "url": "https://javalab.org/ko/charge_conservation/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "금속 결합 관점에서 본 정전기 유도",
+    "url": "https://javalab.org/ko/electrostatic_induction_metal_bonding/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "도체와 부도체의 정전기 유도",
+    "url": "https://javalab.org/ko/conductor_and_insulator/",
+    "cat": "정전기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전선 주위의 자기장",
+    "url": "https://javalab.org/ko/magnetic_field_around_a_wire/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "LC 진동 회로",
+    "url": "https://javalab.org/ko/lc_oscillator/",
+    "cat": "전기 회로",
+    "status": "원본 참고"
+  },
+  {
+    "name": "트랜지스터의 원리",
+    "url": "https://javalab.org/ko/transistor/",
+    "cat": "반도체",
+    "status": "원본 참고"
+  },
+  {
+    "name": "금속의 에너지 띠(밴드)",
+    "url": "https://javalab.org/ko/energy_band/",
+    "cat": "반도체",
+    "status": "원본 참고"
+  },
+  {
+    "name": "인덕터와 커패시터 3",
+    "url": "https://javalab.org/ko/inductor_and_capacitor_3/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "인덕터와 커패시터 2",
+    "url": "https://javalab.org/ko/inductor_and_capacitor_2/",
+    "cat": "교류·RLC",
+    "status": "원본 참고"
+  },
+  {
+    "name": "자석은 왜 못을 끌어 당길까?",
+    "url": "https://javalab.org/ko/magnetic_induction/",
+    "cat": "자기",
+    "status": "원본 참고"
+  },
+  {
+    "name": "전자기파의 방출",
+    "url": "https://javalab.org/ko/electromagnetic_wave/",
+    "cat": "전자기파",
+    "status": "원본 참고"
+  },
+  {
+    "name": "다이오드 만들기",
+    "url": "https://javalab.org/ko/diode_making/",
+    "cat": "반도체",
+    "status": "원본 참고"
+  }
+]

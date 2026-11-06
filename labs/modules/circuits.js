@@ -22,4 +22,84 @@ M[38]={title:'백열전구: 뜨거워지는 필라멘트',description:'전압에
 M[44]={title:'높은 전압으로 송전하는 이유',description:'수신 전압과 전달 전력을 정한 뒤 도선의 전류·손실을 비교합니다.',controls:[C('V','수신 전압',100,10000,100,1000,'V'),C('P','수신 전력',1000,20000,1000,10000,'W'),C('R','왕복 송전선 저항',1,20,1,5,'Ω')],render(v,t){let V=+v.V,P=+v.P,R=+v.R,I=P/V,loss=I*I*R,drop=I*R,source=V+drop;let g=defs+box(45,150,150,130,'#e0edfa')+T(120,195,'송전 측',23)+T(120,230,`${fmt(source,0)} V`,22)+L(195,175,355,175)+resistor(400,175,R,'왕복 도선 R')+L(445,175,620,175)+box(620,150,135,130,'#e0f3ea')+T(688,195,'수신 측',23)+T(688,230,`${V} V`,22)+particles(200,175,350,175,I/10,t)+T(400,270,`도선 열손실 ${fmt(loss,0)} W`,23,'#c16e42')+T(400,320,`전압 강하 IR = ${fmt(drop,1)} V`,20)+T(400,380,`수신 전력 ${P} W · 전류 ${fmt(I,2)} A`,24);return {svg:g,metrics:[metric('송전 전류',fmt(I,2),'A'),metric('도선 열손실',fmt(loss,1),'W'),metric('필요 송신 전압',fmt(source,1),'V'),metric('효율',fmt(P/(P+loss)*100,2),'%')],explanation:'같은 수신 전력에서 I=P/V입니다. 도선 손실은 I²R이므로 수신 전압을 두 배로 하면 손실은 1/4이 됩니다.',question:'수신 전력과 도선 저항을 그대로 두고 전압을 10배 올리면 손실은?',answer:'전류는 1/10, 손실은 1/100로 줄어듭니다.',note:'수신 측 정전력 부하와 순저항 왕복 도선의 DC 등가모형. 송신 전압은 V수신+IR로 계산합니다. 실제 AC 전력망의 역률·변압기·코로나 손실은 생략합니다.'}},sources:['https://openstax.org/books/university-physics-volume-2/pages/15-6-transformers']};
 M[57]={title:'휘트스톤 브리지의 평형',description:'두 중간 접점의 전위 차를 0으로 만드는 저항 비를 찾습니다.',controls:[C('V','전원',1,12,1,6,'V'),...['R1','R2','R3','R4'].map((key,i)=>C(key,`저항 ${key}`,10,100,10,[20,40,30,60][i],'Ω'))],render(v){let V=+v.V,a=+v.R1,b=+v.R2,c=+v.R3,d=+v.R4,left=V*b/(a+b),right=V*d/(c+d),delta=left-right;let g=defs+T(400,40,`위 접점 ${V} V`,22)+T(400,425,'아래 접점 0 V',22)+L(220,65,580,65)+L(220,390,580,390);for(let x of [220,580]){g+=L(x,65,x,108)+L(x,192,x,268)+L(x,352,x,390)}g+=resistor(220,150,a,'R₁',true)+resistor(220,310,b,'R₂',true)+resistor(580,150,c,'R₃',true)+resistor(580,310,d,'R₄',true)+L(220,230,365,230)+L(435,230,580,230)+`<circle cx="400" cy="230" r="35" fill="#fff" stroke="#7796a4" stroke-width="3"/>`+T(400,237,'V',25)+T(160,235,`${fmt(left,2)} V`,18)+T(650,235,`${fmt(right,2)} V`,18)+T(400,180,`ΔV ${fmt(delta)} V`,22);return {svg:g,metrics:[metric('왼쪽 접점',fmt(left,3),'V'),metric('오른쪽 접점',fmt(right,3),'V'),metric('검출 전압',fmt(delta,3),'V'),metric('평형 여부',Math.abs(delta)<1e-9?'평형':'불평형')],explanation:'왼쪽 전위 V·R₂/(R₁+R₂), 오른쪽 전위 V·R₄/(R₃+R₄). R₁/R₂=R₃/R₄이면 두 전위가 같습니다.',question:'R₁을 두 배로 하면 다시 평형을 만들기 위해 R₃는?',answer:'R₂와 R₄가 같게 유지된다면 R₃도 두 배가 되어야 합니다.',note:'중앙 계기는 입력 저항이 무한대인 이상적인 전압계입니다. 실제 검류계 연결 시 불평형 전류가 주변 가지의 전위에 영향을 줍니다.'}},sources:['https://openstax.org/books/college-physics-2e/pages/21-4-dc-voltmeters-and-ammeters']};
 M[60]={title:'계단 스위치: 두 곳에서 전등 켜기',description:'두 SPDT 스위치가 같은 여행선에 연결될 때 회로가 닫힙니다.',controls:[S('a','아래층 스위치',[[0,'위 여행선'],[1,'아래 여행선']],0),S('b','위층 스위치',[[0,'위 여행선'],[1,'아래 여행선']],0),C('V','모형 전압',1,12,1,6,'V'),C('R','전등 등가 저항',10,100,10,30,'Ω')],render(v,t){let a=+v.a,b=+v.b,on=a===b,I=on?+v.V/+v.R:0;let g=defs+battery(80,235,+v.V)+L(80,198,80,120)+L(80,120,180,120)+L(180,120,260,a?250:120,'#258c81',5)+L(260,120,500,120)+L(260,250,500,250)+L(500,b?250:120,580,120,'#258c81',5)+L(580,120,680,120)+L(680,120,680,196)+`<circle cx="680" cy="230" r="34" fill="${on?'#ffe09b':'#e8edf1'}" stroke="#9b8a65" stroke-width="3"/>`+L(660,210,700,250,'#a6783f')+L(700,210,660,250,'#a6783f')+L(680,264,680,350)+L(680,350,80,350)+L(80,350,80,272)+T(210,295,'스위치 A',19)+T(550,295,'스위치 B',19)+T(380,95,'위 여행선',17)+T(380,280,'아래 여행선',17)+T(400,405,on?'닫힌 경로: 전등 켜짐':'경로 단절: 전등 꺼짐',25);if(on)g+=particles(270,a?250:120,490,a?250:120,I,t);return {svg:g,metrics:[metric('전등 상태',on?'켜짐':'꺼짐'),metric('전등 전류',fmt(I),'A'),metric('전등 전압',on?+v.V:0,'V'),metric('전등 등가 저항',v.R,'Ω')],explanation:'어느 한쪽 스위치든 바꾸면 닫힌 경로와 열린 경로가 서로 바뀝니다. 두 스위치의 위치가 같으면 이 배선에서는 켜집니다.',question:'전등이 꺼져 있을 때 어느 층에서든 스위치를 한 번 바꾸면?',answer:'반대 여행선으로 연결되어 경로가 이어지므로 켜집니다.',note:'저전압 원리 모형. 실제 건물 배선 작업 안내가 아니며 가정용 전원에 연결하지 마세요. 전등은 일정 저항으로 이상화했습니다.'}},sources:source};
+/* Topic 1: independently drawn voltage-height model, preserving the reference's
+   front battery, rear descending loads, ground plane and five circuit choices. */
+{
+  const choices=[['single','단일 저항'],['series11','1:1 직렬'],['series12','1:2 직렬'],['parallel11','1:1 병렬'],['parallel12','1:2 병렬']];
+  const initialView=()=>({yaw:-.46,pitch:.61});
+  let view=initialView(),drag=null,annotations={values:true,drops:false,current:false},cameraFit={scale:1,x:0,y:0};
+  const point=(x,y,z)=>({x,y,z});
+  const lerp=(a,b,f)=>point(a.x+(b.x-a.x)*f,a.y+(b.y-a.y)*f,a.z+(b.z-a.z)*f);
+  function calculate(v){
+    const kind=choices.some(([key])=>key===v.arrangement)?v.arrangement:'single';
+    const V=Number(v.V),R1=Number(v.R),R2=R1*(kind.endsWith('12')?2:1),parallel=kind.startsWith('parallel'),single=kind==='single';
+    const eq=single?R1:parallel?R1*R2/(R1+R2):R1+R2,I=V/eq;
+    const I1=parallel?V/R1:I,I2=single?0:parallel?V/R2:I,V1=single||parallel?V:I1*R1,V2=single?0:parallel?V:I2*R2;
+    return {kind,V,R1,R2,parallel,single,eq,I,I1,I2,V1,V2};
+  }
+  function geometry(q){
+    // Height is proportional to potential. The whole loop, rather than a
+    // separate chart, rises at the source and descends through the loads.
+    const h=96*q.V/1.5,scale=Math.min(1,150/Math.max(h,1)),H=h*scale;
+    const front=112,back=-112,lo=point(-48,front,0),hi=point(48,front,H);
+    const lowCorner=point(-260,front,0),highCorner=point(260,front,H),backLow=point(-260,back,0),backHigh=point(260,back,H);
+    const leads=[[hi,highCorner,backHigh],[backLow,lowCorner,lo]],resistors=[],rails=[];
+    if(q.single){const a=point(70,back,H),b=point(-70,back,0);rails.push([backHigh,a],[b,backLow]);resistors.push({id:'R1',a,b,R:q.R1,V:q.V1,I:q.I1});}
+    else if(q.parallel){
+      const split=point(120,back,H),merge=point(-120,back,0);rails.push([backHigh,split],[merge,backLow]);
+      for(const [i,y] of [-144,-60].entries()){const a=point(80,y,H),b=point(-80,y,0);rails.push([split,point(120,y,H),a],[b,point(-120,y,0),merge]);resistors.push({id:i?'R2':'R1',a,b,R:i?q.R2:q.R1,V:q.V,I:i?q.I2:q.I1});}
+    }else{
+      const middle=H*q.V1/q.V,a2=point(175,back,H),b2=point(65,back,middle),a1=point(-65,back,middle),b1=point(-175,back,0);
+      rails.push([backHigh,a2],[b2,a1],[b1,backLow]);
+      resistors.push({id:'R2',a:a2,b:b2,R:q.R2,V:q.V2,I:q.I2},{id:'R1',a:a1,b:b1,R:q.R1,V:q.V1,I:q.I1});
+    }
+    return {H,lo,hi,leads,rails,resistors,ground:[point(-260,-112,0),point(260,-112,0),point(260,112,0),point(-260,112,0)]};
+  }
+  function rawProject(p){const c=Math.cos(view.yaw),s=Math.sin(view.yaw);return {x:400+c*p.x-s*p.y,y:262+Math.sin(view.pitch)*(s*p.x+c*p.y)-Math.cos(view.pitch)*p.z};}
+  function fitView(g){const pts=[...g.ground,...g.leads.flat(),...g.rails.flat()].map(rawProject),xs=pts.map(p=>p.x),ys=pts.map(p=>p.y),left=Math.min(...xs),right=Math.max(...xs),top=Math.min(...ys),bottom=Math.max(...ys);const scale=Math.min(1,680/(right-left),337/(bottom-top));cameraFit={scale,x:400-scale*(left+right)/2,y:223.5-scale*(top+bottom)/2};}
+  function project(p){const raw=rawProject(p);return {x:raw.x*cameraFit.scale+cameraFit.x,y:raw.y*cameraFit.scale+cameraFit.y};}
+  const pair=p=>`${p.x.toFixed(2)},${p.y.toFixed(2)}`;
+  function path(points,color='#293537',width=4.2,extra=''){return `<path d="M${points.map(p=>pair(project(p))).join(' L')}" fill="none" stroke="${color}" stroke-width="${width}" stroke-linecap="round" stroke-linejoin="round" ${extra}/>`;}
+  function stepPoints(r){const pts=[r.a];for(let n=0;n<5;n++){const f=(n+.5)/5,g=(n+1)/5;pts.push(point(r.a.x+(r.b.x-r.a.x)*f,r.a.y,r.a.z+(r.b.z-r.a.z)*n/5),point(r.a.x+(r.b.x-r.a.x)*f,r.a.y,r.a.z+(r.b.z-r.a.z)*g));}pts.push(r.b);return pts;}
+  function charges(points,current,t){
+    if(current<=0)return '';const lengths=points.slice(1).map((p,i)=>Math.hypot(p.x-points[i].x,p.y-points[i].y,p.z-points[i].z));const total=lengths.reduce((a,b)=>a+b,0),count=Math.max(2,Math.round(total/52));let out='';
+    for(let i=0;i<count;i++){let d=(i*total/count+t*31*current)%total,j=0;while(j<lengths.length-1&&d>lengths[j])d-=lengths[j++];const p=project(lerp(points[j],points[j+1],d/lengths[j]));out+=`<circle data-charge="positive" cx="${p.x.toFixed(2)}" cy="${p.y.toFixed(2)}" r="4.2" fill="#d75b4d" stroke="#fff" stroke-opacity=".5" stroke-width=".7"/>`;}
+    return out;
+  }
+  function sourceArt(g,q){
+    const a=project(g.lo),b=project(g.hi),length=Math.hypot(b.x-a.x,b.y-a.y),angle=Math.atan2(b.y-a.y,b.x-a.x)*180/Math.PI,minus=project(lerp(g.lo,g.hi,.16)),plus=project(lerp(g.lo,g.hi,.85));
+    return `<g data-part="battery" data-low-potential="0" data-high-potential="${q.V}" transform="translate(${a.x} ${a.y}) rotate(${angle})"><rect x="2" y="-19" width="${length-4}" height="38" rx="3" fill="#3c464b" stroke="#28343a" stroke-width="1.3"/><path d="M${length*.72} -19 H${length-2} V19 H${length*.72}Z" fill="#d6ad45"/><path d="M7 -15 H${length*.69}" stroke="#647077" stroke-width="2"/></g>`+T(minus.x,minus.y+6,'−',21,'#f2d572')+T(plus.x,plus.y+6,'+',21,'#595237');
+  }
+  function renderHeight(v,t=0){
+    const q=calculate(v),g=geometry(q);fitView(g);let svg=`<style>#scene{touch-action:none}</style><rect x="8" y="8" width="784" height="434" rx="12" fill="#f5f6f4"/><g data-voltage-height="true" style="cursor:grab"><polygon data-part="ground" points="${g.ground.map(p=>pair(project(p))).join(' ')}" fill="#c6e6bd" stroke="#b6d9b0" stroke-width="1"/>`;
+    const ground=project(point(-60,10,0));svg+=T(ground.x,ground.y,'Ground · 0 V',20,'#577c54');
+    for(const line of [...g.leads,...g.rails])svg+=path(line);
+    for(const r of g.resistors){const pts=stepPoints(r);svg+=`<g data-part="resistor" data-resistor="${r.id}" data-voltage-drop="${r.V}" data-current="${r.I}" data-high-height="${r.a.z}" data-low-height="${r.b.z}">${path(pts,'#333a3d',2.8)}</g>`;}
+    // The red markers follow conventional current: battery + → high rail →
+    // descending resistance → low rail → battery −. In branches, speed is I.
+    for(const line of g.leads)svg+=charges(line,q.I,t);
+    for(const line of g.rails){const branch=q.parallel&&line.length===3;const current=branch?(line.some(p=>p.y===-144)?q.I1:q.I2):q.I;svg+=charges(line,current,t);}
+    for(const r of g.resistors)svg+=charges(stepPoints(r),r.I,t);
+    svg+=sourceArt(g,q);
+    if(annotations.values){const batteryLabel=project(lerp(g.lo,g.hi,.55));svg+=T(batteryLabel.x+63,batteryLabel.y+15,`${fmt(q.V,1)} V`,22,'#315bb7');}
+    for(const r of g.resistors){const mid=project(lerp(r.a,r.b,.5));const rear=q.parallel&&r.id==='R1',below=q.parallel&&r.id==='R2';
+      if(annotations.values)svg+=T(mid.x+(below?40:0),mid.y+(below?30:-10),`${q.single?'':r.id==='R1'?'R₁ · ':'R₂ · '}${fmt(r.R,1)} Ω`,19,'#273b42');
+      if(annotations.drops)svg+=T(mid.x+(below?42:0),mid.y+(below?54:-36),`${fmt(r.V,2)} V`,19,'#315bb7');
+      if(annotations.current)svg+=T(mid.x+(rear?-58:below?100:0),mid.y+(rear?8:below?7:37),`${fmt(r.I,2)} A`,18,'#b43f37');
+    }
+    if(annotations.current){for(const p of [point(-260,10,0),point(260,10,g.H)]){const s=project(p);svg+=T(s.x+(p.x<0?-42:42),s.y+12,`${fmt(q.I,2)} A`,18,'#b43f37');}}
+    svg+=`</g><g data-node="voltage-view" tabindex="0" role="button" aria-label="그림 시점 조절. 방향키로 회전, Home 키로 초기화."><rect x="495" y="405" width="285" height="28" rx="7" fill="#ffffffbb"/>${T(638,424,'그림을 드래그 · 방향키로 시점 바꾸기',13,'#657d80')}</g>`;
+    return {svg,metrics:[metric('전원 전압',fmt(q.V,2),'V'),metric('합성 저항',fmt(q.eq,3),'Ω'),metric('전체 전류',fmt(q.I,3),'A'),metric('R₁ 전압 / 전류',`${fmt(q.V1,2)} V / ${fmt(q.I1,3)} A`),...(!q.single?[metric('R₂ 전압 / 전류',`${fmt(q.V2,2)} V / ${fmt(q.I2,3)} A`)]:[])],explanation:q.single?'전지는 전위를 높이고, 저항을 지나는 동안 전위가 낮아집니다. 그림의 높이 차가 전압을 나타냅니다. 도선에서는 높이가 일정하고, 한 바퀴에서 전압 상승과 전압 강하의 합은 0입니다.':q.parallel?'병렬의 두 저항은 같은 높은 접점과 낮은 접점에 연결됩니다. 따라서 내려오는 높이, 즉 각 저항의 전압은 같습니다. 각 가지의 전류는 I=V/R이고 전체 전류는 두 가지 전류의 합입니다.':'직렬의 두 저항은 차례로 높이를 낮춥니다. 두 전압 강하의 합이 전지 전압과 같고, 같은 전류가 두 저항을 지납니다. 큰 저항에서 더 큰 높이 차(전압 강하)가 생깁니다.',question:'1:2 직렬과 1:2 병렬을 비교하세요. 두 저항에서 내려오는 높이와 흐르는 전류는 각각 어떻게 다를까요?',answer:'직렬에서는 전류가 같고 전압 강하는 1:2입니다. 병렬에서는 전압 강하가 같고 전류는 2:1입니다. 두 회로 모두 전지가 높인 전위만큼 저항에서 전위가 낮아집니다.',note:'전위의 높이 비유이며 실제 도선을 높은 곳에 설치해야 한다는 뜻은 아닙니다. Ground는 전지 음극의 0 V 기준입니다. 붉은 점은 양의 전하로 표시한 관습적 전류 방향이며 실제 전자의 속도나 궤적이 아닙니다. 높이는 화면에 맞춰 축척이 조정됩니다. 이상적 전지·저항·도선 모형입니다.'};
+  }
+  function changeView(dx,dy){view.yaw=Math.max(-.9,Math.min(.05,view.yaw+dx));view.pitch=Math.max(.25,Math.min(.95,view.pitch+dy));}
+  M[1]={title:'직렬·병렬 회로의 전압과 전류',description:'세워진 전지가 높인 전위가 저항을 지나며 낮아지는 모습을 관찰합니다.',controls:[S('arrangement','회로 선택',choices,'single'),C('V','전원 전압',.5,6,.5,1.5,'V'),C('R','기준 저항 R₁',.5,10,.5,1,'Ω')],sources:['https://javalab.org/ko/electric_potential/',...source],render:renderHeight,
+    reset(){view=initialView();drag=null;annotations={values:true,drops:false,current:false};},
+    mountControls(container,notify){const doc=container.ownerDocument;const row=doc.createElement('div');row.style.cssText='display:flex;gap:12px 22px;flex-wrap:wrap;align-items:center';for(const [key,label] of [['values','전압, 저항값'],['drops','저항에 걸리는 전압'],['current','전류값']]){const wrap=doc.createElement('label'),input=doc.createElement('input'),text=doc.createElement('span');wrap.style.cssText='display:inline-flex;gap:7px;align-items:center;min-height:38px';input.type='checkbox';input.checked=annotations[key];input.id='potential-show-'+key;input.addEventListener('change',()=>{annotations[key]=input.checked;notify()});text.textContent=label;wrap.append(input,text);row.append(wrap);}const reset=doc.createElement('button');reset.type='button';reset.textContent='시점 초기화';reset.onclick=()=>{view=initialView();drag=null;notify()};row.append(reset);container.append(row);},
+    onScenePointer(event,svg,notify){if(event.type==='pointerdown'){if(event.button!==undefined&&event.button!==0)return;drag={id:event.pointerId,x:event.clientX,y:event.clientY};svg.setPointerCapture?.(event.pointerId);event.preventDefault?.();return;}if(!drag||event.pointerId!==drag.id)return;if(event.type==='pointermove'){changeView((event.clientX-drag.x)*.004,(event.clientY-drag.y)*.004);drag.x=event.clientX;drag.y=event.clientY;event.preventDefault?.();notify();}else if(event.type==='pointerup'||event.type==='pointercancel'){svg.releasePointerCapture?.(event.pointerId);drag=null;}},
+    onSceneKeyDown(event,svg,notify){const motions={ArrowLeft:[-.05,0],ArrowRight:[.05,0],ArrowUp:[0,-.05],ArrowDown:[0,.05]};if(motions[event.key])changeView(...motions[event.key]);else if(event.key==='Home')view=initialView();else return;event.preventDefault?.();notify();},
+    snapshot(){return [{label:'그림 표기',value:[annotations.values?'전압·저항':'',annotations.drops?'저항 전압':'',annotations.current?'전류':''].filter(Boolean).join(', ')||'숨김'}];},
+    _test:{calculate,geometry,project,getView:()=>({...view}),getAnnotations:()=>({...annotations}),setAnnotations:a=>{annotations={...annotations,...a}}}
+  };
+}
+
 window.RAON_CIRCUIT_TEST={solve};})();

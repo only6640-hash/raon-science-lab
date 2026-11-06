@@ -1,0 +1,5 @@
+/* Optional deterministic diagram screenshots; requires the installed sharp package. */
+const fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),sharp=require('sharp');
+const root=path.resolve(__dirname,'..'),out=path.join(root,'docs/voltage-height');fs.mkdirSync(out,{recursive:true});
+const ctx={window:{},console,Math};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(root,'labs/modules/circuits.js'),'utf8'),ctx);const m=ctx.window.RAON_MODELS[1];
+(async()=>{for(const arrangement of ['single','series11','series12','parallel11','parallel12']){m.reset();if(arrangement!=='single')m._test.setAnnotations({drops:true,current:true});const r=m.render({arrangement,V:1.5,R:1},.6);const svg=`<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" font-family="sans-serif">${r.svg}</svg>`;await sharp(Buffer.from(svg)).png().toFile(path.join(out,`${arrangement}.png`));}console.log('Rendered five topic 1 diagrams to docs/voltage-height. These are SVG renders, not browser screenshots.');})().catch(e=>{console.error(e);process.exitCode=1});

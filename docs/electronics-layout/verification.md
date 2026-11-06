@@ -14,7 +14,7 @@ Layout evidence comes from actual JavaLab rendered-page audit reports.64 was rec
 ## Known limits, not completion claims
 -32: hardware layout preview and simulated3V data only, no Bluetooth pairing or micro:bit device measurements. The original device activity charges toward3.3V.
 -46: first three circuits were rechecked live and corrected to emitter-side LEDs, complete100kΩ base supply paths and a base-to-ground inverted switch. The fourth visible+3V potentiometer is present. Its right-hand circuit stays covered in the source even at reveal100; fullscreen links and cover dragging did not reveal it. It remains explicitly unverified, not invented.
--58: original drag gesture unverified; this version uses clickable pin contacts as an explicit accessible substitute.
+-58: the original drag gesture remains unverified. The later independent-contact audit confirms both diagrams support multiple simultaneous pin toggles; see ../topic58-contact-acceptance.md for the isolated correction and its validation limits.
 -17/39/62: the original analytical overrides in this file are superseded in the integrated app by layout-transients.js. The separate layer owns continuous state, switching history and declared loss models; see its acceptance report. Do not omit that later script.
 -31: separate numerical ideal switching simulation with static6second trace window. Run animates the displayed switch; it does not create a scrolling graph history.
 -79/80: preserve graph history after changes, but append new steady-state samples rather than integrating setting-change transients.

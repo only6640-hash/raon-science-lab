@@ -13,7 +13,8 @@ const x=data[selectedIndex];if(!x)return;
 $('#raonMode').classList.toggle('active',!showReference);$('#referenceMode').classList.toggle('active',showReference);
 $('#framecrop').classList.toggle('native',!showReference);
 $('#viewerMessage').textContent=showReference?'원본 참고 화면: 오른쪽 스크롤바로 조절 영역을 살펴보세요.':'이 화면은 주제와 관련된 라온 자체 원리 모형입니다. 원본과 동일한 실험이라는 뜻은 아닙니다.';
-$('#frame').src=showReference?x.url:selectedIndex===0?'../labs/series-parallel-raon.html?embed=1':'../labs/electricity-studio.html?embed=1&topic='+(selectedIndex+1);
+$('#frame').title=showReference?'원본 참고 실험: '+x.name:'라온 자체 탐구 모형: '+x.name;
+$('#frame').src=showReference?x.url:[0,13,17,50,52].includes(selectedIndex)?'../labs/series-parallel-raon.html?embed=1'+(selectedIndex===52?'&mode=parallelDifferent':''):'../labs/electricity-studio.html?embed=1&topic='+(selectedIndex+1);
 }
 function select(x){selected=x.url;selectedIndex=data.indexOf(x);$('#title').textContent=x.name;$('#description').textContent='원본 참고: '+x.name+' ('+x.url+')';$('#original').href=x.url;$('#original').textContent='원본 참고·출처: 자바실험실 — '+x.name+' · '+x.url;applyViewer();render()}
 $('#raonMode').onclick=()=>{showReference=false;applyViewer()};$('#referenceMode').onclick=()=>{showReference=true;applyViewer()};

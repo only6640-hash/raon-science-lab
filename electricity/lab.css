@@ -5,3 +5,12 @@
 /* Keep object-specific controls directly below the scene without splitting labels. */
 .custom-controls > label{display:inline-flex;flex-direction:column;vertical-align:top;gap:5px;margin:4px 8px 8px 0}
 .custom-controls > button{margin:4px 6px 8px 0}
+
+/* In-scene discovery cue: stays within the illustration so sliders remain immediately below. */
+.gesture-cue{position:absolute;left:14px;bottom:12px;z-index:3;max-width:min(570px,calc(100% - 28px));padding:9px 13px 9px 36px;border:1px solid #cddedc;border-radius:10px;background:#ffffffed;box-shadow:0 5px 15px #173d4a18;color:#38616a;font-size:12px;line-height:1.5;pointer-events:none}
+.gesture-cue::before{content:'◎';position:absolute;left:12px;top:8px;color:#167e74;font-size:16px;font-weight:800}
+.gesture-cue.is-interactive{border-color:#9bcfc6;background:#f2fcf8ed}
+.gesture-cue.is-interactive::before{content:'✥'}
+.component-results[open]{border:1px solid #cbe5df;background:#f8fcfa}
+.component-results[open] summary{color:#0b746b}
+@media(max-width:700px){.gesture-cue{left:8px;bottom:6px;max-width:calc(100% - 16px);font-size:10px;padding:6px 8px 6px 26px}.gesture-cue::before{left:7px;top:5px;font-size:13px}}

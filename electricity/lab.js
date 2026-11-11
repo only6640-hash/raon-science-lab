@@ -4,7 +4,7 @@ try{let data=JSON.parse(localStorage.getItem(storageKey)||'[]');if(Array.isArray
 function defaults(e){return Object.fromEntries(e.controls.map(c=>[c.key,c.value]))}function formatNumber(x){if(typeof x!=='number')return String(x);if(!Number.isFinite(x))return '—';return Number.isInteger(x)?String(x):String(Number(x.toPrecision(7)))}
 function renderList(){const term=$('search').value.trim().toLocaleLowerCase('ko'),cat=$('category').value;let shown=0;$('topics').replaceChildren();catalog.forEach((topic,index)=>{if((cat&&topic.cat!==cat)||(term&&!topic.name.toLocaleLowerCase('ko').includes(term)))return;shown++;const b=document.createElement('button');b.type='button';b.className='topic';b.setAttribute('aria-current',String(topic.id===activeId));b.innerHTML=`<span>${String(topic.id).padStart(2,'0')}</span><strong>${escape(topic.name)}</strong>`;b.onclick=()=>select(topic.id,true);$('topics').append(b)});$('count').textContent=`${shown}개 표시 · 전체 ${catalog.length}개`}
 function interactionGuide(id,e){const direct={
-1:'전지와 저항을 직접 눌러 보세요. 회로의 위치를 움직이며 전압·전류를 비교할 수 있습니다.',
+1:'그림을 드래그해 시점을 돌리고 바로 아래에서 회로 형태·전압·저항을 바꾸세요. 전압 강하와 전류값 표시도 켜 보세요.',
 9:'그림 속 스위치를 눌러 입력 A·B를 바꾸고 논리 게이트의 출력을 확인하세요.',
 10:'부품을 끌어 배치하고 단자끼리 도선으로 연결하세요. 저항과 전지는 클릭해 값을 바꿀 수 있습니다.',
 21:'회로 속 전지를 움직이고 저항을 조절해 전압과 전류의 관계를 확인하세요.',
